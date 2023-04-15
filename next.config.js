@@ -1,18 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["lh3.googleusercontent.com"],
-  },
-  async redirects() {
-    return [
-      {
-        source: "/github",
-        destination: "https://github.com/steven-tey/precedent",
-        permanent: false,
-      },
-    ];
+    domains: [
+      "lh3.googleusercontent.com",
+      "localhost",
+      process.env.STORAGE_BUCKET_URL,
+    ],
   },
 };
 

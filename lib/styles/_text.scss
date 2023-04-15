@@ -1,0 +1,119 @@
+// ================================================================================================
+// TYPOGRAPHY
+// ================================================================================================
+
+// Scale
+// ------------------------------------------------------------------------------------------------
+
+:root {
+  // Generated partially by: https://www.fluid-type-scale.com/
+  // Mobile:  16px  375px  1.125
+  // Desktop: 19px 1600px  1.333
+  --font-size-xs: clamp(12.64px, -0.16vw + 13.24px, 10.69px);
+  --font-size-sm: clamp(14.22px, 0vw + 14.21px, 14.25px);
+  --font-size-base: clamp(16px, 0.24vw + 15.08px, 19px);
+  --font-size-md: clamp(18px, 0.6vw + 15.76px, 25.33px);
+  --font-size-lg: clamp(20.25px, 1.1vw + 16.11px, 33.76px);
+  --font-size-xl: clamp(22.78px, 1.81vw + 15.98px, 45px);
+  --font-size-xxl: clamp(25.63px, 2.8vw + 15.11px, 59.99px);
+}
+
+.statusChat {
+  --font-size-xs: clamp(13.18px, -0.11vw + 13.58px, 11.85px);
+  --font-size-sm: clamp(14.06px, -0.06vw + 14.28px, 13.33px);
+  --font-size-base: clamp(15px, 0vw + 15px, 15px);
+  --font-size-md: clamp(16px, 0.07vw + 15.74px, 16.88px);
+  --font-size-lg: clamp(17.08px, 0.16vw + 16.49px, 18.98px);
+  --font-size-xl: clamp(18.22px, 0.26vw + 17.26px, 21.36px);
+  --font-size-xxl: clamp(19.44px, 0.37vw + 18.04px, 24.03px);
+}
+
+// Defaults
+// ------------------------------------------------------------------------------------------------
+
+h1 {
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.1;
+}
+h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  line-height: 1.2;
+}
+h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  line-height: 1.2;
+}
+h4 {
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  line-height: 1.3;
+}
+h5 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  line-height: 1.4;
+}
+h6 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  line-height: 1.5;
+}
+p {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+small {
+  font-size: var(--font-size-xs);
+}
+dt {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  line-height: 1;
+}
+dd {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1;
+}
+label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  line-height: 1;
+}
+input,
+textarea {
+  // font-size: var(--font-size-sm);
+  font-weight: 400;
+}
+
+// Special Text
+// ------------------------------------------------------------------------------------------------
+.cyan-gradient-animation {
+  --bg-size: 400%;
+  background: linear-gradient(
+      90deg,
+      hsl(205, 100%, 50%) 0%,
+      hsl(200, 100%, 60%) 20%,
+      hsl(233, 36%, 27%) 40%,
+      #3172f5 60%,
+      #00b7c2 80%,
+      hsl(205, 100%, 50%) 100%
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cyan-gradient-animation {
+    animation: move-bg 30s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+}

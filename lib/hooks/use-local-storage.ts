@@ -1,3 +1,4 @@
+import { parseJson } from "#/lib/helpers/string-helpers";
 import { useEffect, useState } from "react";
 
 const useLocalStorage = <T>(
@@ -10,7 +11,7 @@ const useLocalStorage = <T>(
     // Retrieve from localStorage
     const item = window.localStorage.getItem(key);
     if (item) {
-      setStoredValue(JSON.parse(item));
+      setStoredValue(parseJson(item));
     }
   }, [key]);
 

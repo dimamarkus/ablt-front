@@ -1,10 +1,10 @@
-import { FADE_IN_ANIMATION_SETTINGS } from "@/lib/constants";
+import { FADE_IN_ANIMATION_SETTINGS } from "#/lib/constants";
+import { useAuthContext } from "#/lib/contexts/AuthContext";
+import useScroll from "#/lib/hooks/use-scroll";
 import { AnimatePresence, motion } from "framer-motion";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
-import useScroll from "@/lib/hooks/use-scroll";
 import Meta from "./meta";
 import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
@@ -20,7 +20,7 @@ export default function Layout({
   };
   children: ReactNode;
 }) {
-  const { data: session, status } = useSession();
+  const { session, isLoading } = useAuthContext();
   const { SignInModal, setShowSignInModal } = useSignInModal();
   const scrolled = useScroll(50);
 
@@ -49,7 +49,7 @@ export default function Layout({
           </Link>
           <div>
             <AnimatePresence>
-              {!session && status !== "loading" ? (
+              {!session && !isLoading ? (
                 <motion.button
                   className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
                   onClick={() => setShowSignInModal(true)}
